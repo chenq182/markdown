@@ -101,7 +101,9 @@
     "token": "some_token",
     "card": "id_card"
 }
-//或
+```
+或
+```
 {
     "token": "some_token",
     "sha": "sha1_of_img"
@@ -141,6 +143,7 @@ __通用及业务错误码__
 | 5001 | Internal error | 服务器内部错误 | 记录错误信息，服务器启动错误 |
 | 5002 | Result parsing error | 结果解析错误 | 记录错误信息，重试即可 |
 | 0000 | * | 未知错误 | 记录错误信息，查看原因 |
+
 ---
 
 ## 2. 鉴权认证机制
@@ -156,15 +159,16 @@ __通用及业务错误码__
 ### 2.2 授权范围
 当前授权范围包含以下业务：
 <font face="Courier New">
-| scope | 对应业务 | token_type |
+| scope | 对应业务 | token\_type |
 |-|-|:-:|
 | match | 人脸比对 | mac |
 | ident | 人脸查找 | mac |
 | store | 人脸图库 | mac |
 | image | 图片浏览 | bearer |
+
 </font>
 
-### 2.3 获取 access_token
+### 2.3 获取 access\_token
 #### 2.3.1 请求说明
 请求方法: `POST`
 
@@ -213,7 +217,7 @@ __通用及业务错误码__
     "mac_algorithm": "hmac-sha-1"
 }
 ```
-### 2.4 更新 access_token
+### 2.4 更新 access\_token
 #### 2.4.1 请求说明
 请求方法: `POST`
 
@@ -228,7 +232,7 @@ __通用及业务错误码__
 ```
 #### 2.4.2 返回说明
 同前一个二级标题 `获取 access_token` 的 `返回说明`。
-### 2.5 使用 access_token 访问授权业务
+### 2.5 使用 access\_token 访问授权业务
 #### 2.5.1 使用bearer令牌
 常见的bearer令牌只用于https协议访问，且有效时间较短，参考[`这里`](https://tools.ietf.org/html/rfc6750#section-5.3)。
 
@@ -257,7 +261,7 @@ MAC id="jd93dh9dh39D", nonce="273156:di3hvdf8", bodyhash="k9kbtCIy0CkI3/FEfpS/oI
 
 访问签名中`mac`字段值的生成步骤如下，参考[`这里`](https://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-00#section-3.3)：
 - 生成规范化字符串`text`，参考[`这里`](https://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-00#section-3.3.1)。将`nonce`字段、请求方法、请求URI、访问域名或IP、访问端口、`bodyhash`字段、`ext`字段（当前为空串）依次连接，连接符为'`\n`'，示例如下：
-```JavaScript
+```
 264095:7d8f3e4a\n
 POST\n
 /face01/rest/request\n
@@ -279,17 +283,18 @@ Lve95gjOVATpfV8EL5X4nxwjKHE=\n
 __授权错误一览__
 | error字段值 | 状态码 | 描述 |
 |-|-|-|
-| invalid_request | 400 | 请求字段不合法 |
-| invalid_client | 401 | 无效终端、无认证方式、认证方式不支持 |
-| invalid_grant | 400 | 令牌无效、令牌过期、令牌已删除、终端IP不一致、请求路径不一致 |
-| unauthorized_client | 400 | 已认证，但无权限使用此grant_type |
-| unsupported_grant_type | 400 | 不支持此grant_type |
-| invalid_scope | 400 | 无效的授权范围、无权限访问此业务 |
+| invalid\_request | 400 | 请求字段不合法 |
+| invalid\_client | 401 | 无效终端、无认证方式、认证方式不支持 |
+| invalid\_grant | 400 | 令牌无效、令牌过期、令牌已删除、终端IP不一致、请求路径不一致 |
+| unauthorized\_client | 400 | 已认证，但无权限使用此grant\_type |
+| unsupported\_grant\_type | 400 | 不支持此grant\_type |
+| invalid\_scope | 400 | 无效的授权范围、无权限访问此业务 |
+
 __附加Header一览__
-| error字段值 | token_type | 附加Header |
+| error字段值 | token\_type | 附加Header |
 |-|:-:|-|
-| invalid_client | [`mac`](https://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-00#section-4.1) | `WWW-Authenticate: MAC` |
-| invalid_client | [`bearer`](https://tools.ietf.org/html/rfc6750#section-3.1) | `WWW-Authenticate: Bearer realm="example"` |
+| invalid\_client | [`mac`](https://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-00#section-4.1) | `WWW-Authenticate: MAC` |
+| invalid\_client | [`bearer`](https://tools.ietf.org/html/rfc6750#section-3.1) | `WWW-Authenticate: Bearer realm="example"` |
 
 ___
 
