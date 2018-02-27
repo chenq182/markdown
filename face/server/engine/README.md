@@ -130,6 +130,7 @@
 }
 ```
 __通用及业务错误码__
+
 | 错误码 | 错误信息 | 描述 | 处理建议 |
 |:-:|-|-|-|
 | 3011 | Invalid sha1 | 该图片不存在 | 图片或已删除 |
@@ -159,6 +160,7 @@ __通用及业务错误码__
 ### 2.2 授权范围
 当前授权范围包含以下业务：
 <font face="Courier New">
+
 | scope | 对应业务 | token\_type |
 |-|-|:-:|
 | match | 人脸比对 | mac |
@@ -281,6 +283,7 @@ Lve95gjOVATpfV8EL5X4nxwjKHE=\n
 }
 ```
 __授权错误一览__
+
 | error字段值 | 状态码 | 描述 |
 |-|-|-|
 | invalid\_request | 400 | 请求字段不合法 |
@@ -291,6 +294,7 @@ __授权错误一览__
 | invalid\_scope | 400 | 无效的授权范围、无权限访问此业务 |
 
 __附加Header一览__
+
 | error字段值 | token\_type | 附加Header |
 |-|:-:|-|
 | invalid\_client | [`mac`](https://tools.ietf.org/html/draft-ietf-oauth-v2-http-mac-00#section-4.1) | `WWW-Authenticate: MAC` |
