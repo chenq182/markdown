@@ -10,7 +10,7 @@
 
 请求方法: `POST`
 
-请求URL: `http://106.12.2.90/face01/rest/match`
+请求URL: `http://127.0.0.1/face01/rest/match`
 
 请求实体:
 ```JavaScript
@@ -38,7 +38,7 @@
 
 请求方法: `POST`
 
-请求URL: `http://106.12.2.90/face01/rest/ident`
+请求URL: `http://127.0.0.1/face01/rest/ident`
 
 请求实体:
 ```JavaScript
@@ -71,7 +71,7 @@
 
 请求方法: `POST`
 
-请求URL: `http://106.12.2.90/face01/rest/store/create`
+请求URL: `http://127.0.0.1/face01/rest/store/create`
 
 请求实体:
 ```JavaScript
@@ -93,7 +93,7 @@
 #### 1.3.3 人员注销 请求说明
 请求方法: `POST`
 
-请求URL: `http://106.12.2.90/face01/rest/store/delete`
+请求URL: `http://127.0.0.1/face01/rest/store/delete`
 
 请求实体:
 ```JavaScript
@@ -174,7 +174,7 @@ __通用及业务错误码__
 #### 2.3.1 请求说明
 请求方法: `POST`
 
-请求URL: `http://106.12.2.90/face01/rest/token`
+请求URL: `http://127.0.0.1/face01/rest/token`
 
 请求实体:
 
@@ -223,7 +223,7 @@ __通用及业务错误码__
 #### 2.4.1 请求说明
 请求方法: `POST`
 
-请求URL: `http://106.12.2.90/face01/rest/token`
+请求URL: `http://127.0.0.1/face01/rest/token`
 
 请求实体: `参考`[`这里`](https://tools.ietf.org/html/rfc6749#section-6)
 ```JavaScript
@@ -328,7 +328,7 @@ ac.trimps.wlw
 public class Sample {
     public static void main(String[] args) {
         Client client = ClientBuilder.newBuilder().build();
-        WebTarget target = client.target("http://106.12.2.90/face01/rest/match");
+        WebTarget target = client.target("http://127.0.0.1/face01/rest/match");
         try {
             TMatch match = new TMatch(
                     "C:\\Users\\Public\\Pictures\\avatar.jpg",
@@ -352,7 +352,7 @@ public class Sample {
 public class Sample {
     public static void main(String[] args) {
         Client client = ClientBuilder.newBuilder().build();
-        WebTarget target = client.target("http://106.12.2.90/face01/rest/ident");
+        WebTarget target = client.target("http://127.0.0.1/face01/rest/ident");
         try {
             TIdent ident = new TIdent(
                     "C:\\Users\\Public\\Pictures\\avatar.jpg",
